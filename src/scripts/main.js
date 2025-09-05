@@ -1,11 +1,12 @@
 'use strict';
 
-const items = document.querySelectorAll('.list-item__link');
+const ul = document.querySelector('#thumbs');
 
-items.forEach((item) => {
-  // eslint-disable-next-line no-shadow
-  item.addEventListener('click', (event) => {
-    event.preventDefault();
-    document.querySelector('#largeImg').src = item.getAttribute('href');
-  });
+// eslint-disable-next-line no-shadow
+ul.addEventListener('click', (event) => {
+  event.preventDefault();
+
+  const link = event.target.closest('.list-item__link');
+
+  document.querySelector('#largeImg').src = link.getAttribute('href');
 });
